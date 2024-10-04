@@ -1,7 +1,9 @@
 from rest_framework import generics, status
 from rest_framework.response import Response
 from apps.tasks.models.project import Project  # Импортируйте вашу модель проекта
-from ..serializers.project_serializers import ProjectDetailSerializer  # Импортируйте ваш сериализатор
+from apps.tasks.serializers.project_file_serializers import AllProjectFilesSerializer, CreateProjectFileSerializer
+
+from apps.tasks.serializers.project_serializers import ProjectDetailSerializer  # Импортируйте сериализатор для деталей проекта
 
 class ProjectDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Project.objects.all()  # Получите все проекты
